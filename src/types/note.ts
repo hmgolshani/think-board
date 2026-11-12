@@ -8,3 +8,4 @@ export type Note = {
 
 export type NoteFormData = Pick<Note, "title" | "content">
 
+export type SortOption = "newest" | "oldest"
