@@ -3,12 +3,12 @@ import {CloudOff} from "lucide-react";
 import Button from "./Button.tsx";
 
 type ErrorStateProps = {
-    title: string;
+    title?: string;
     message: string;
     onRetry: () => void;
 }
 
-const ErrorState = ({title, message, onRetry}:ErrorStateProps) => {
+const ErrorState = ({title ="We couldn’t load your notes", message, onRetry}:ErrorStateProps) => {
     return (
         <EmptyState tone={"danger"}
                     icon={<CloudOff size={28} aria-hidden={true}/>}
