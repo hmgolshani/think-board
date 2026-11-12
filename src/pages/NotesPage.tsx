@@ -1,6 +1,16 @@
+import NotesToolbar from "../components/notes/NotesToolbar.tsx";
+import {useState} from "react";
+
 const NotesPage = () => {
+    const [searchText, setSearchText] = useState("")
+
     return (
         <main className="mx-auto max-w-6xl px-7 py-7 lg:px-4">
+
+            <NotesToolbar onSearchChange={setSearchText}
+                          searchText={searchText}
+            />
+
             <h2 className="font-display text-[28px] font-medium">All notes</h2>
         </main>
     );
