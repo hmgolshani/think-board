@@ -1,5 +1,5 @@
 import type {ApiSuccess, Note, NoteFormData} from "../types/note.ts";
-import {apiClient} from "./clinet.ts";
+import {apiClient} from "./client.ts";
 
 //all note
 export async function getNotes(): Promise<Note[]> {
