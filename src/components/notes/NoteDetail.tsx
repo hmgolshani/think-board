@@ -2,13 +2,14 @@ import type {Note} from "../../types/note.ts";
 import {formatDate} from "../../utils/formatDate.ts";
 import Button from "../ui/Button.tsx";
 import {Pencil, Trash2} from "lucide-react";
+import NoteFormDialog from "./NoteFormDialog.tsx";
+import DeleteNoteDialog from "./DeleteNoteDialog.tsx";
 
 type NoteDetailProps = {
     note: Note
-    onEdit: (note: Note) => void
-    onDelete: (note: Note) => void
+    onDelete: () => void
 }
-const NoteDetail = ({note, onEdit, onDelete}: NoteDetailProps) => {
+const NoteDetail = ({note, onDelete}: NoteDetailProps) => {
     return (
         <article>
             <h1 className="mb-2.5 font-display text-3xl leading-tight font-medium sm:text-4xl"
@@ -26,18 +27,31 @@ const NoteDetail = ({note, onEdit, onDelete}: NoteDetailProps) => {
             </div>
 
             <div className="mt-7 flex flex-col gap-2.5 sm:flex-row">
-                <Button variant={"secondary"}
-                        icon={<Pencil size={18} aria-hidden="true"/>}
-                        onClick={() => onEdit(note)}
-                >
-                Edit
-                </Button>
+                <NoteFormDialog trigger={
+                    <Button variant={"secondary"}
+                            icon={<Pencil size={18} aria-hidden="true"/>}
+                    >
+                        Edit
+                    </Button>
+                }
+                />
 
-                <Button variant={"dangerOutline"}
-                        icon={<Trash2 size={18} aria-hidden="true"/>}
-                        onClick={() => onDelete(note)}>
-                Delete
-                </Button>
+                <DeleteNoteDialog note={note}
+                                  onDeleted={onDelete}
+                                  trigger={
+                                      <Button variant="dangerOutline"
+                                              icon={<Trash2 size={18}
+                                                            aria-hidden="true"
+                                              />
+                                              }
+                                      >
+                                          Delete
+                                      </Button>
+                                  }
+
+
+                />
+
 
             </div>
         </article>

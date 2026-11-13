@@ -1,14 +1,14 @@
-import NotesToolbar from "../components/notes/NotesToolbar.tsx";
+import NotesToolbar from "../notes/NotesToolbar.tsx";
 import {useState} from "react";
-import type {Note, SortOption} from "../types/note.ts";
-import {useNote} from "../hooks/useNote.ts";
-import {filterNotes, sortNotes} from "../utils/notes.ts";
-import ErrorState from "../components/ui/ErrorState.tsx";
-import EmptyState from "../components/ui/EmptyState.tsx";
-import Button from "../components/ui/Button.tsx";
+import type {Note, SortOption} from "../../types/note.ts";
+import {useNote} from "../../hooks/useNote.ts";
+import {filterNotes, sortNotes} from "../../utils/notes.ts";
+import ErrorState from "../ui/ErrorState.tsx";
+import EmptyState from "../ui/EmptyState.tsx";
+import Button from "../ui/Button.tsx";
 import {FileText, Plus, Search} from "lucide-react";
-import NoteCard from "../components/notes/NoteCard.tsx";
-import NoteCardSkeleton from "../components/notes/NoteCardSkeleton.tsx";
+import NoteCard from "../notes/NoteCard.tsx";
+import NoteCardSkeleton from "../notes/NoteCardSkeleton.tsx";
 
 type NotesPageProps = {
     onNewNote: () => void;

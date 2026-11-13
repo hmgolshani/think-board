@@ -1,7 +1,7 @@
 import { ArrowLeft, FileQuestion } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import EmptyState from "../components/ui/EmptyState";
-import Button from "../components/ui/Button";
+import EmptyState from "../ui/EmptyState.tsx";
+import Button from "../ui/Button.tsx";
 
 const NotFoundPage = () => {
     const navigate = useNavigate();
