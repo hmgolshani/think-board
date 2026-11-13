@@ -9,3 +9,15 @@ export type Note = {
 export type NoteFormData = Pick<Note, "title" | "content">
 
 export type SortOption = "newest" | "oldest"
+
+export type ApiSuccess<T>={
+    success: true
+    response :T
+    status : number
+}
+
+export type ApiError={
+    success: false
+    error: string
+    status : number
+}

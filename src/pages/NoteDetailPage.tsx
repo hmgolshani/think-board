@@ -1,7 +1,7 @@
 import {Link, useNavigate, useParams} from "react-router-dom";
 import type {Note} from "../types/note.ts";
 import {ArrowLeft, FileText} from "lucide-react";
-import {useNote} from "../hooks/useNote.ts";
+import {useNote} from "../hooks/useNotes.ts";
 import NoteDetail from "../components/notes/NoteDetail.tsx";
 import EmptyState from "../components/ui/EmptyState.tsx";
 import Button from "../components/ui/Button.tsx";
