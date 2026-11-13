@@ -10,7 +10,7 @@ import NoteCard from "../components/notes/NoteCard.tsx";
 import NoteCardSkeleton from "../components/notes/NoteCardSkeleton.tsx";
 import {useNotes} from "../hooks/useNotes.ts";
 import {getErrorMessage} from "../utils/getErrorMessage.ts";
-import NoteForm from "../components/notes/NoteForm.tsx";
+import NoteFormDialog from "../components/notes/NoteFormDialog.tsx";
 
 
 const NotesPage = () => {
@@ -52,7 +52,7 @@ const NotesPage = () => {
                     title="No notes yet"
                     description="Capture a thought, a plan or a link. Your first note takes a few seconds."
                     action={
-                        <NoteForm
+                        <NoteFormDialog
                             trigger={
                                 <Button icon={<Plus size={18} aria-hidden="true"/>} >
                                     Create your first note
