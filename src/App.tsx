@@ -1,13 +1,13 @@
 import Header from "./components/layout/Header.tsx";
 import {Route, Routes} from "react-router-dom";
-import NotesPage from "./pages/NotesPage.tsx";
-import NoteDetailPage from "./pages/NoteDetailPage.tsx";
-import NotFoundPage from "./pages/NotFoundPage.tsx";
+import NotesPage from "./components/pages/NotesPage.tsx";
+import NoteDetailPage from "./components/pages/NoteDetailPage.tsx";
+import NotFoundPage from "./components/pages/NotFoundPage.tsx";
 
 const App = () => {
   return (
       <>
-        <Header onNewNote={()=> console.log('new note')} />
+        <Header />
 
         <Routes>
           <Route path="/" element={<NotesPage />} />

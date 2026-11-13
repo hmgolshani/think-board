@@ -1,12 +1,11 @@
 import {Plus} from "lucide-react";
 import {Link} from "react-router-dom";
 import Button from "../ui/Button";
+import NoteFormDialog from "../notes/NoteFormDialog.tsx";
 
-type HeaderProps = {
-    onNewNote: () => void;
-};
 
-const Header = ({onNewNote}: HeaderProps) => {
+
+const Header = () => {
     return (
         <header className="border-b border-line">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-7">
@@ -21,9 +20,13 @@ const Header = ({onNewNote}: HeaderProps) => {
                     Think Board
                 </Link>
 
-                <Button onClick={onNewNote} icon={<Plus size={18} aria-hidden="true"/>} aria-label="New note">
-                    <span className="hidden sm:inline">New note</span>
-                </Button>
+                <NoteFormDialog
+                    trigger={
+                        <Button  icon={<Plus size={18} aria-hidden="true"/>} aria-label="New note">
+                            <span className="hidden sm:inline">New note</span>
+                        </Button>
+                    }
+                />
 
             </div>
         </header>
