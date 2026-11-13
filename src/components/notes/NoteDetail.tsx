@@ -27,7 +27,7 @@ const NoteDetail = ({note, onDelete}: NoteDetailProps) => {
             </div>
 
             <div className="mt-7 flex flex-col gap-2.5 sm:flex-row">
-                <NoteFormDialog trigger={
+                <NoteFormDialog note={note} trigger={
                     <Button variant={"secondary"}
                             icon={<Pencil size={18} aria-hidden="true"/>}
                     >
