@@ -3,14 +3,17 @@ import {Link} from "react-router-dom";
 import {formatDate} from "../../utils/formatDate.ts";
 import IconButton from "../ui/IconButton.tsx";
 import {Pencil, Trash2} from "lucide-react";
+import NoteFormDialog from "./NoteFormDialog.tsx";
+import DeleteNoteDialog from "./DeleteNoteDialog.tsx";
+
 
 type NoteCardProps = {
     note: Note
-    onEdit: (note: Note) => void;
-    onDelete: (note: Note) => void;
 }
 
-const NoteCard = ({note, onEdit, onDelete}: NoteCardProps) => {
+const NoteCard = ({note}: NoteCardProps) => {
+
+
     return (
         <article className="relative flex min-h-48 flex-col rounded-[14px] border border-line bg-white px-[18px] pt-[18px]
          pb-2.5 transition-[transform,box-shadow] duration-150
@@ -34,18 +37,27 @@ const NoteCard = ({note, onEdit, onDelete}: NoteCardProps) => {
                 >
                     {formatDate(note.createdAt)}
                 </time>
+
                 <div className="relative z-10 -mr-2 flex gap-0.5">
-                    <IconButton label={"Delete note"}
-                                icon={<Trash2 size={18} aria-hidden={true}/>}
-                                onClick={() => {
-                                    onDelete(note)
-                                }}
+                    <NoteFormDialog
+                        note={note}
+                        trigger={
+                            <IconButton label="Edit note"
+                                        icon={<Pencil size={18} aria-hidden={true}/>}
+                            />
+                        }
                     />
-                    <IconButton label={"Edit note"}
-                                icon={<Pencil size={18} aria-hidden={true} />}
-                                onClick={() => onEdit(note)}
+                    <DeleteNoteDialog
+                        note={note}
+                        trigger={
+                            <IconButton label="Delete note"
+                                        danger
+                                        icon={<Trash2 size={18} aria-hidden={true}/>}
+                            />
+                        }
                     />
                 </div>
+
             </footer>
         </article>
     );
