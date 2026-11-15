@@ -12,11 +12,11 @@ const Header = () => {
 
                 {/*logo */}
                 <Link to="/" className="flex items-center gap-2.5 font-display text-xl font-semibold">
-
-          <span className="grid items-center size-7 place-content-center gap-1 rounded-lg bg-accent" aria-hidden="true">
-            <span className="h-0.5 w-3.5 rounded bg-white"/>
-            <span className="h-0.5 w-3.5 rounded bg-white"/>
-          </span>
+                    <img src="/Logo.png" alt="" className="h-13 w-13"/>
+          {/*<span className="grid items-center size-7 place-content-center gap-1 rounded-lg bg-accent" aria-hidden="true">*/}
+                    {/*  <span className="h-0.5 w-3.5 rounded bg-white"/>*/}
+                    {/*  <span className="h-0.5 w-3.5 rounded bg-white"/>*/}
+                    {/*</span>*/}
                     Think Board
                 </Link>
 
