@@ -15,19 +15,19 @@ const NoteCard = ({note}: NoteCardProps) => {
 
 
     return (
-        <article className="relative flex min-h-48 flex-col rounded-[14px] border border-line bg-white px-[18px] pt-[18px]
+        <article className="relative min-w-0 flex min-h-48 flex-col rounded-[14px] border border-line bg-white px-4.5 pt-4.5
          pb-2.5 transition-[transform,box-shadow] duration-150
          hover:-translate-y-0.5 hover:shadow-lg hover:shadow-ink/10
          motion-reduce:transition-none motion-reduce:hover:transform-none"
         >
-            <h3 className="mb-2 font-display text-xl leading-tight font-medium" dir="auto">
+            <h3 className="min-w-0 wrap-break-word  line-clamp-1 wrap-anywhere mb-2 font-display text-xl leading-tight font-medium" dir="auto">
                 <Link to={`/notes/${note.id}`}
                       className="after:absolute after:inset-0 after:rounded-[14px]">
                     {note.title}
                 </Link>
             </h3>
 
-            <p className="line-clamp-3 leading-relaxed text-muted" dir="auto">
+            <p className="line-clamp-3 whitespace-pre-line wrap-anywhere leading-relaxed text-muted" dir="auto">
                 {note.content}
             </p>
 
