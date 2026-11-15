@@ -16,5 +16,7 @@ export function sortNotes(notes: Note[], sort: SortOption): Note[] {
             return copy.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
         case "oldest":
             return copy.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+        case "title":
+            return copy.sort((a, b) => a.title.localeCompare(b.title));
     }
 }

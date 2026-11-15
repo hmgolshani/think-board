@@ -8,7 +8,7 @@ export type Note = {
 
 export type NoteFormData = Pick<Note, "title" | "content">
 
-export type SortOption = "newest" | "oldest"
+export type SortOption = "newest" | "oldest" | "title"
 
 export type ApiSuccess<T>={
     success: true

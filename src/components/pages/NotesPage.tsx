@@ -90,7 +90,7 @@ const NotesPage = () => {
     }
 
     return (
-        <main className="mx-auto max-w-6xl px-7 py-7 lg:px-4">
+        <main className="mx-auto max-w-6xl px-4 py-7 sm:px-7">
 
             <NotesToolbar onSearchChange={setSearchText}
                           searchText={searchText}

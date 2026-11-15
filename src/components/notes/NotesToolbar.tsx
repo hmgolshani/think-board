@@ -11,7 +11,7 @@ type NotesToolbarProps = {
 }
 const NotesToolbar = ({searchText,onSearchChange ,sort , onSortChange}:NotesToolbarProps) => {
     return (
-        <div className=" mb-6 flex flex-col gap-3 lg:flex-row ">
+        <div className=" mb-6 flex flex-col gap-3  sm:flex-row ">
             <SearchBar value={searchText} onChange={onSearchChange}/>
             <SortSelect value={sort} onChange={onSortChange}/>
         </div>
