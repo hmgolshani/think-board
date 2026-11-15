@@ -1,7 +1,7 @@
 import {type ReactNode, useState} from "react";
 import type {Note} from "../../types/note.ts";
 import {useCreateNote, useUpdateNote} from "../../hooks/useNoteMutations.ts";
-import {useForm} from "react-hook-form";
+import {useForm , useWatch} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {type NoteFormValues, noteSchema} from "../../schemas/noteSchema.ts";
 import FormField from "../ui/FormField.tsx";
@@ -28,12 +28,14 @@ const NoteFormDialog = ({trigger, note}: NoteFormProps) => {
     const updateMutation = useUpdateNote();
     const isSaving = createMutation.isPending || updateMutation.isPending;
 
-    const {register, handleSubmit, reset, formState: {errors}} = useForm<NoteFormValues>
+    const {register, handleSubmit, reset,control, formState: {errors}} = useForm<NoteFormValues>
     ({
         resolver: zodResolver(noteSchema),
         defaultValues: {title: note?.title ?? "", content: note?.content ?? ""},
     });
 
+    const titleLength = (useWatch({control, name: "title"}) ?? "").length;
+    const contentLength = (useWatch({control, name: "content"}) ?? "").length;
 
     function handleOpenChange(next: boolean) {
         setOpen(next);
@@ -75,6 +77,7 @@ const NoteFormDialog = ({trigger, note}: NoteFormProps) => {
                             <FormField label="Title"
                                        htmlFor="note-title"
                                        error={errors.title?.message}
+                                       counter={`${titleLength}/50`}
                             >
                                 <input id="note-title"
                                        dir="auto"
@@ -82,12 +85,14 @@ const NoteFormDialog = ({trigger, note}: NoteFormProps) => {
                                        className={inputClass(!!errors.title)}
                                        disabled={isSaving}
                                        {...register("title")}
+                                       maxLength={50}
                                 />
                             </FormField>
 
                             <FormField label="Description"
                                        htmlFor="note-content"
                                        error={errors.content?.message}
+                                       counter={`${contentLength}/250`}
                             >
                                 <textarea id="note-content"
                                           dir="auto"
@@ -96,6 +101,7 @@ const NoteFormDialog = ({trigger, note}: NoteFormProps) => {
                                           className={inputClass(!!errors.content)}
                                           disabled={isSaving}
                                           {...register("content")}
+                                          maxLength={250}
                                 />
                             </FormField>
 

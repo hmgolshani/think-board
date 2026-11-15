@@ -5,15 +5,24 @@ type FormFieldProps = {
     htmlFor: string;
     error?: string;
     children: ReactNode;
+    counter?:string;
 }
-const FormField = ({label, htmlFor, error, children}: FormFieldProps) => {
+const FormField = ({label, htmlFor, error, children , counter}: FormFieldProps) => {
     return (
         <div className="mb-4">
-            <label htmlFor={htmlFor}
-                   className="mb-1.5 block text-sm font-semibold"
-            >
-                {label}
-            </label>
+            <div className="mb-1.5 flex items-baseline justify-between">
+                <label htmlFor={htmlFor}
+                       className="mb-1.5 block text-sm font-semibold"
+                >
+                    {label}
+                </label>
+                {counter && (
+                    <span className="text-xs text-muted" aria-hidden="true" >
+                        {counter}
+                    </span>
+                )}
+            </div>
+
             {children}
             {error &&
                 <p id={`${htmlFor}-error`}
