@@ -98,10 +98,10 @@ const NoteFormDialog = ({trigger, note}: NoteFormProps) => {
                                           dir="auto"
                                           rows={5}
                                           placeholder="Write your note here…"
-                                          className={inputClass(!!errors.content)}
-                                          disabled={isSaving}
+                                          className={`${inputClass(!!errors.content)} resize-none`}                                          disabled={isSaving}
                                           {...register("content")}
                                           maxLength={250}
+
                                 />
                             </FormField>
 
