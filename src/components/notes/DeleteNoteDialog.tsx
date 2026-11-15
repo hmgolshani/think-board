@@ -23,8 +23,15 @@ const DeleteNoteDialog = ({trigger, note, onDeleted}: DeleteNoteDialogProps) => 
         } catch { /* empty */
         }
     }
+    const maxTitleLength = 20;
+
+    const shortTitle =
+        note.title.length > maxTitleLength
+            ? `${note.title.slice(0, maxTitleLength)}…`
+            : note.title;
 
     return (
+
         <AlertDialog.Root open={open} onOpenChange={setOpen}>
             <AlertDialog.Trigger asChild>{trigger}</AlertDialog.Trigger>
 
@@ -49,10 +56,10 @@ const DeleteNoteDialog = ({trigger, note, onDeleted}: DeleteNoteDialogProps) => 
                         </AlertDialog.Title>
 
                         <AlertDialog.Description className="mt-2 leading-relaxed text-muted">
-                            <b className="font-semibold text-ink"
+                            <b className=" font-semibold text-ink"
                                dir="auto"
                             >
-                                “{note.title}”
+                                “{shortTitle}”
                             </b> {" "}
                             will be permanently deleted. This can’t be undone.
                         </AlertDialog.Description>
