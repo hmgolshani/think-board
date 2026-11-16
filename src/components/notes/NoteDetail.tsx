@@ -12,7 +12,7 @@ type NoteDetailProps = {
 const NoteDetail = ({note, onDelete}: NoteDetailProps) => {
     return (
         <article>
-            <h1 className="mb-2.5 font-display text-3xl leading-tight font-medium sm:text-4xl"
+            <h1 className="mb-2.5 font-display text-3xl leading-tight font-medium md:text-4xl break-words [overflow-wrap:anywhere] "
                 dir="auto">
                 {note.title}
             </h1>
@@ -22,7 +22,7 @@ const NoteDetail = ({note, onDelete}: NoteDetailProps) => {
                 {note.updatedAt !== note.createdAt && ` · Updated ${formatDate(note.updatedAt)}`}
             </p>
 
-            <div className="mt-6 border-t border-line pt-6 text-[17px] leading-relaxed whitespace-pre-wrap text-ink/90"
+            <div className="mt-6 border-t border-line pt-6 text-[17px] leading-relaxed whitespace-pre-wrap text-ink/90 break-words [overflow-wrap:anywhere]"
                  dir="auto">{note.content}
             </div>
 
